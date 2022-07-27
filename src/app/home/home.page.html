@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Alunos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="margem">
+
+  <ion-refresher slot="fixed" (ionRefresh)="atualizarAlunos($event)" pullMin="100" pullMax="250">
+    <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Solte para atualizar"
+      refreshingSpinner="crescent" refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <h1>Cadastrar Alunos</h1>
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Digite o Nome</ion-label>
+      <ion-input [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Digite o Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="cadastrar()">Gravar</ion-button>
+
+  </ion-card>
+
+  <h1>Listar Alunos</h1>
+  <ion-list>
+    <ion-item *ngFor="let item of lista; let i=index">
+      {{ i+1 }} - {{item.nome}}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "listaBD",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
